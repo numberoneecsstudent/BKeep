@@ -7,8 +7,8 @@ class NewEditor extends Component {
     return (
       <CKEditor
         config={{
-          removePlugins: [ 'Table, TableToolbar' ],
-          toolbar: [ "heading", "|", 'bold', 'italic', 'bulletedList', 'numberedList', 'blockQuote', 'Image', 'ImageUpload' ]
+          removePlugins: [ 'Image, ImageCaption, ImageStyle, ImageToolbar, ImageUpload, MediaEmbed, Table, TableToolbar' ],
+          toolbar: [ "heading", "|", 'bold', 'italic', 'bulletedList', 'numberedList', 'blockQuote' ]
         }}
         editor={ClassicEditor}
         placeholder="Hello!"

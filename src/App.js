@@ -23,7 +23,7 @@ class App extends Component {
         if (!userData.username) {
           throw new Error("This app requires a username.");
         }
-        this.props.history.push("/home");
+        this.props.history.push("/newpost");
       });
     }
   }
