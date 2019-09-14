@@ -1,151 +1,43 @@
-
-.landing-container {
-  // width: 100%;
-  // height: 100vh;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-
-
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-
-    // h1 {
-    //   font-size: 60px;
-    //   font-weight: bold;
-    //   margin-bottom: 20px;
-    // }
-
-    // h2 {
-    //   font-size: 30px;
-    //   font-weight: bold;
-    //   margin-bottom: 40px;
-    // }
-
-    button {
-      background: none;
-      border: 2px solid black;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all .5s ease;
-
-      &:hover {
-        background: black;
-        color: white;
-      }
+/* services */
+.services {
+    padding: 5rem 0;
+  }
+  .services {
+    background: var(--darkGrey);
+    text-align: center;
+  }
+  .services-center {
+    width: 90vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 50px;
+  }
+  .service span {
+    display: inline-block;
+    color: var(--primaryColor);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .services h6 {
+    letter-spacing: var(--mainSpacing);
+    text-transform: capitalize;
+  }
+  .services p {
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media screen and (min-width: 992px) {
+    .services-center {
+      width: 95vw;
+      max-width: 1170px;
     }
-  /*background-image: url("../../images/adventure.jpg");
-  background-size: 100% auto;
-  background-repeat: no-repeat;*/
- /* display: grid;
-  grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
-  grid-template-rows: 150px 1fr;
-  grid-template-areas:
-    ".      navigation            navigation       ."
-    ".      left-content          right-image      .";
+  }
   
-  .landing-navigation {
-    grid-area: navigation;
-    justify-self: center;
-    align-self: center;
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    h1 {
-      font-weight: bold;
-      font-size: 50px;
-    }
-
-    .signing {
-      text-decoration: none;
-      color: black;
-    }
-  } //landing-navigation
-
-  .landing-content {
-    grid-area: left-content;
-    justify-self: start;
-    align-self: center;
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: flex-start;
-
-    .title {
-
-      h2 {
-        font-size: 45px;
-        font-weight: bold;
-      }
-    
-    }
-
-    .howitworks {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-right: 15px;
-
-      .attr {
-        display: flex;
-        align-items: center;
-        margin-bottom: 40px;
-
-        h3 {
-          font-size: 35px;
-          font-weight: bold;
-          margin-right: 20px;
-          width: 105px;
-        }
-
-        p {
-          font-size: 15px;
-        }
-      }
-
-      .last-attr {
-        margin-bottom: 0;
-      }
-    } //howitworks
-
-    button {
-      padding: 15px;
-      font-size: 15px;
-      background: none;
-      border: 2px solid black;
-      border-radius: 5px;
-      transition: all .5s ease;
-      cursor: pointer;
-      font-weight: bold;
-
-      &:hover {
-        background: black;
-        color: white;
-      }
-    }
-  } //landing-content
-
-  .landing-image {
-    grid-area: right-image;
-    align-self: center;
-    justify-self: center;
-    width: 70%;
-
-    img {
+  @media screen and (min-width: 1200px) {
+    .services p {
       width: 100%;
-      height: 100%;
-      border-radius: 25px; 
     }
-  }*/
-}
+  }
+  /*end of services */

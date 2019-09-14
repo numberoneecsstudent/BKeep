@@ -1,45 +1,49 @@
 import React from "react";
 import "./Landing.scss";
-import { Power1 } from "gsap/src/uncompressed/TweenMax";
-import TimelineMax from "gsap/src/uncompressed/TimelineMax";
 import { UserSession } from 'blockstack'
 import Loader from "react-loader-spinner";
 import { Provider, Heading, Subhead, Flex, Feature } from 'rebass'
-import { Hero, ScrollDownIndicator } from 'react-landing-page'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Hero, ScrollDownIndicator, CallToAction, Section } from 'react-landing-page'
+import { FaLock, FaFeatherAlt } from "react-icons/fa";
+import { TiDocumentText } from "react-icons/ti";
+import { IoIosGitNetwork } from "react-icons/io";
 
 class Landing extends React.Component {
   constructor(props) {
     super(props);
-    this.timeline = new TimelineMax({ paused: true });
-    this.title = null;
-    this.btn = null;
-    this.subtitle = null;
     this.userSession = new UserSession();
+    this.state = {
+      services: [
+        {
+          icon: <TiDocumentText />,
+          title: "Write, edit, and save Notes",
+          info:
+            "With Block Stacks secure Blockchain technology confidently save all your Notes and reminders securely"
+        },
+        {
+          icon: <FaLock />,
+          title: "Secure Notes",
+          info:
+            "Secure your personal notes, entries, or sensitive information with Blockstack's secure block chain encryption technology"
+        },
+        {
+          icon: <FaFeatherAlt />,
+          title: "Light and Fast",
+          info:
+            "Quickly and easily jot down important notes"
+        },
+        {
+          icon: <IoIosGitNetwork />,
+          title: "Be one of the first to adopt Blockchain Technology in your everyday life",
+          info:
+            "Blockchain is the fastest growing technology and you will be one of the first to adopt tnd use it"
+        }
+      ]
+    };
   }
 
   componentDidMount() {
     const session = this.userSession;
-
-    if (!session.isSignInPending()) {
-      this.timeline
-      .from(this.logo, 0.4, {
-        autoAlpha: 0,
-        delay: 0.3,
-        ease: Power1.easeIn
-      })
-      .from(this.subtitle, 0.4, {
-        autoAlpha: 0,
-        y: 25,
-        ease: Power1.easeInOut
-      })
-      .from(this.btn, 0.3, {
-        autoAlpha: 0,
-        ease: Power1.easeIn
-      });
-
-    this.timeline.play();
-    }
   }
 
   signIn(e) {
@@ -69,27 +73,30 @@ class Landing extends React.Component {
               backgroundImage="https://bit.ly/2mbdNbH"
               bgOpacity={0.5}
             >
-              <Heading>B-Keep</Heading>
-              <Subhead fontSize={[2, 3]}>
-                Sign in to your BlockStack to get Started
-              </Subhead>
-              <div ref={div => (this.btn = div)}>
-                <button onClick={this.signIn.bind(this)}>Sign In!</button>
-              </div>
-              <ScrollDownIndicator />
+              <Section
+                heading="B-Keep"
+                subhead="A Blockchain Powered NoteTaker"
+                width={1}
+              >
+                <CallToAction mt={3} onClick={this.signIn.bind(this)}>
+                  {" "}
+                  Get Started!
+                </CallToAction>
+              </Section>
             </Hero>
-            <Heading textAlign="center">What is inside?</Heading>
-            <Flex flexWrap="wrap" justifyContent="center">
-              <Feature icon={<FontAwesomeIcon icon="far fa-file-alt"/>} description="What your users see first">
-                Hero
-              </Feature>
-              <Feature icon="🔥" description="What your app can do">
-                Features
-              </Feature>
-              <Feature icon="📩" description="How to keep in touch">
-                Sign Up
-              </Feature>
-            </Flex>
+            <section className="services">
+              <div className="services-center">
+                {this.state.services.map(item => {
+                  return (
+                    <article key={`item-${item.title}`} className="service">
+                      <span>{item.icon}</span>
+                      <h6>{item.title}</h6>
+                      <p>{item.info}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
           </Provider>
         )}
       </div>
